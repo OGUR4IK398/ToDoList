@@ -27,6 +27,8 @@ body {
 
 }
 
+
+/* Стили для кнопочек */
 .btn-add {
     padding-left: 20px;
     padding-right: 20px;
@@ -59,6 +61,7 @@ body {
     opacity: 1;
 }
 
+/* Оформление тасков (доавляемый элемент) */
 
 .task {
     display: flex;
@@ -84,9 +87,41 @@ body {
 
 input {outline:none;}
 
-
 input[type="checkbox"] {
     width: 25px;
     height: 25px;
 }
 
+
+/* Адаптивность */
+
+@media (max-width: 1200px){
+    .my-container{
+        display: block;
+        position: static;
+        margin: auto;
+        margin-top: 100px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 500px){
+    .my-container{
+        display: block;
+        position: static;
+        margin: auto;
+        margin-top: 100px;
+        width: 95%;
+    }
+    .my-container:hover {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .task-text{
+        width: 70%;
+    }
+
+    .btn-del{
+        opacity: 1;
+    }
+}
