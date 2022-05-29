@@ -19,8 +19,31 @@ btnAdd.addEventListener('click', (e) => {
     });
 
 
+
+    let xStart, xEnd;
+
+    el.addEventListener("touchstart", (e)=>{
+
+        xStart = e.targetTouches[0].clientX;
+
+    }, false);
+
+    el.addEventListener("touchend", (e) => {
+
+        xEnd = e.changedTouches[0].clientX;
+
+        if (Math.abs(xEnd - xStart) >= 100){
+
+            el.remove();    
+
+        }
+    }, false);
+
     list.appendChild(el);
 
+    
 });
+
+
 
 
