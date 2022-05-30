@@ -20,7 +20,7 @@ btnAdd.addEventListener('click', (e) => {
 
 
 
-    let xStart, xEnd;
+    let xStart, xEnd, xNow;
 
     el.addEventListener("touchstart", (e)=>{
         xStart = e.targetTouches[0].clientX;
@@ -28,14 +28,31 @@ btnAdd.addEventListener('click', (e) => {
 
     el.addEventListener("touchend", (e) => {
         xEnd = e.changedTouches[0].clientX;
-        if (Math.abs(xEnd - xStart) >= 100) {el.remove();}    
+        if (Math.abs(xEnd - xStart) >= 100) {el.remove();}
+
+        // Если не дошло до выхода, то возвращаем
+        if (Math.abs(xEnd - xStart) <= 100){
+            el.style.marginLeft = 0 + "px";
+            el.style.marginRight = 0 + "px";
+        }
+
     }, false);
+
+    el.addEventListener("touchmove", (e)=>{
+        xNow = e.targetTouches[0].clientX;
+        
+        el.style.marginLeft = xNow - xStart + "px";
+        el.style.marginRight = xStart - xNow + "px";
+
+    });
 
     list.appendChild(el);
 
     
 });
 
-
+// task
+// Добавить анимацию css через keypoints и пусть добавляет ее при
+// достаточном удалении от центра экрана
 
 
